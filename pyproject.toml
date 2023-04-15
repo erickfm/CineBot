@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "cinebot"
+version = "0.1.0"
+description = "Your AI Film Recommender"
+authors = ["Erick Martinez <efm.physics@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.0.139"
+openai = "^0.27.4"
+streamlit = "^1.21.0"
+tmdbv3api = "^1.7.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -67,5 +67,5 @@ if about_page:
     st.markdown('# About \n')
     st.write('Built by [Erick Martinez](https://github.com/erickfm) using OpenAI, LangChain, TMDB, and Streamlit. CineBot icons by [Megan Cerminaro](https://www.megancerminaro.com/)'
              '\n\nModel is tuned for more variety in answers. ChatGPT is trained on data limited to September 2021.')
-    st.markdown(f"""<a href="https://github.com/erickfm/CineBot"><img src="{github_image_path}" style="display:block;" width="10%" height="10%"></a>
- <a href="https://www.patreon.com/ErickFMartinez"><img src="{patreon_image_path}" style="display:block;" width="10%" height="10%"></a>""", unsafe_allow_html=1)
+    st.markdown(f"""<div><a href="https://github.com/erickfm/CineBot"><img src="{github_image_path}" style="padding-right: 10px;" width="6%" height="6%"></a> 
+    <a href="https://www.patreon.com/ErickFMartinez"><img src="{patreon_image_path}" style="padding-right: 10px;" width="6%" height="6%"></a></div>""", unsafe_allow_html=1)

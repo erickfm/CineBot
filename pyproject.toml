@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cinebot"
-version = "0.1.0"
+version = "0.2.0"
 description = "Your AI Film Recommender"
 authors = ["Erick Martinez <efm.physics@gmail.com>"]
 readme = "README.md"

@@ -10,7 +10,7 @@ os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 os.environ["TMDB_API_KEY"] = st.secrets["TMDB_API_KEY"]
 movie = Movie()
 
-st.set_page_config(page_title='CineBot', page_icon="🎞", initial_sidebar_state='collapsed')
+st.set_page_config(page_title='CineBot', page_icon="images/cinebot2_small.png", initial_sidebar_state='collapsed')
 st.markdown(f'''
     <style>
         section[data-testid="stSidebar"] .css-ng1t4o {{width: 14rem;}}
@@ -18,20 +18,21 @@ st.markdown(f'''
     </style>
 ''',unsafe_allow_html=True)
 with st.sidebar:
-    cinebot_page = st.button('CineBot', type='secondary', use_container_width=1)
-    about_page = st.button('About', type='secondary', use_container_width=1)
+    cinebot_page = st.button('CineBot', use_container_width=1)
+    about_page = st.button('About', use_container_width=1)
     if not about_page:
         cinebot_page = True
 if cinebot_page:
-    st.markdown('# CineBot 🤖 \nYour AI Film Recommender')
+    cola, colb = st.columns([2,9])
+    cola.image('images/cinebot1_small.png')
+    colb.markdown('# CineBot \nYour AI Film Recommender')
     form = st.form('form')
     film = form.text_input('Film', 'Princess Mononoke (1997)')
     number_of_recs = form.number_input(label='Number of recommendations', min_value=1, value=3, step=1)
     rec_criterion = form.text_input('Recommendation Criterion (optional)')
     # temperature = form.slider('Variety', 0.0, 1.0, 1.0)
-    submit = form.form_submit_button('Submit')
 
-    if submit:
+    if form.form_submit_button('Submit'):
         prompt = f"""Given a film, a number of recommendations desired, and an optional recommendation criterion, return a list of movie recommendations. Do not recommend TV shows like The Walking Dead or Breaking Bad.
     
         Film: Spirited Away (2001)
@@ -92,8 +93,8 @@ if cinebot_page:
             except Exception as e:
                 st.error("I'm sorry, I got confused somewhere along the way. Please try again, I'll give it another shot.")
 if about_page:
-    st.markdown('# About 📝 \n')
-    st.write('Built by Erick Martinez using OpenAI, LangChain, TMDB, and Streamlit.'
-             '\n\nModel is tuned for more variety in answers'
-             '\n\nChatGPT is trained on data limited to September 2021'
-             '\n\n[Github Repo](https://github.com/erickfm/CineBot)')
+    st.markdown('# About \n')
+    st.write('Built by Erick Martinez using OpenAI, LangChain, TMDB, and Streamlit, CineBot icons by [Megan Cerminaro](https://www.megancerminaro.com/)'
+             '\n\nModel is tuned for more variety in answers. ChatGPT is trained on data limited to September 2021.'
+             '\n\n\n\n[Github Repo](https://github.com/erickfm/CineBot)'
+             '\n\n')

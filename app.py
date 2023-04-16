@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 from CineBot.functions import recommend, critique, get_rec_prompt, get_crit_prompt
-from CineBot.constants import default_link, alt_link, cinebot_image_path, github_image_path, error_response
+from CineBot.constants import default_link, alt_link, cinebot_image_path, github_image_path, patreon_image_path, error_response
 from tmdbv3api import Movie
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
@@ -67,4 +67,5 @@ if about_page:
     st.markdown('# About \n')
     st.write('Built by [Erick Martinez](https://github.com/erickfm) using OpenAI, LangChain, TMDB, and Streamlit. CineBot icons by [Megan Cerminaro](https://www.megancerminaro.com/)'
              '\n\nModel is tuned for more variety in answers. ChatGPT is trained on data limited to September 2021.')
-    st.markdown(f"""<a href="https://github.com/erickfm/CineBot"><img src="{github_image_path}" style="display:block;" width="10%" height="10%"></a>""", unsafe_allow_html=1)
+    st.markdown(f"""<a href="https://github.com/erickfm/CineBot"><img src="{github_image_path}" style="display:block;" width="10%" height="10%"></a>
+ <a href="https://www.patreon.com/ErickFMartinez"><img src="{patreon_image_path}" style="display:block;" width="10%" height="10%"></a>""", unsafe_allow_html=1)

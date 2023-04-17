@@ -27,7 +27,7 @@ with st.sidebar:
     if not about_page:
         cinebot_page = True
 
-if query_params:
+if 'critic' in query_params:
     if cinebot_page:
         cola, colb = st.columns([2, 9])
         cola.markdown(
@@ -42,7 +42,6 @@ if query_params:
                 critique(prompt)
             except Exception as e:
                 critique(prompt)
-
 else:
     if cinebot_page:
         cola, colb = st.columns([2,9])
@@ -52,8 +51,6 @@ else:
         film = form.text_input('Film', 'Princess Mononoke (1997)')
         number_of_recs = form.number_input(label='Number of recommendations', min_value=1, value=3, step=1)
         rec_criterion = form.text_input('Recommendation Criterion (optional)')
-        # temperature = form.slider('Variety', 0.0, 1.0, 1.0)
-
         if form.form_submit_button('Submit'):
             prompt = get_rec_prompt(film, number_of_recs, rec_criterion)
             try:

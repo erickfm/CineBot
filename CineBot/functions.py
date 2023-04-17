@@ -59,24 +59,28 @@ def get_rec_prompt(film, number_of_recs, rec_criterion):
 
 
 def get_crit_prompt(film):
-    prompt = f"""Given a user's favorite film, return a sarcastic critique of the user except if the user's favorite film is Pride and Prejudice (2005).
+    prompt = f"""Given a user's favorite film, return a sarcastic critique of the user.
 
-    Favorite film: spirited away
+    Favorite film: spirited away (2001)
     Critique of user: Oh how cute.
-    
-    Favorite film: the matrix
-    Critique of user: Are you one of those people who think they're living in a simulation? Because if so, you might want to take a break from sci-fi films and step outside for a bit.
     
     Favorite film: pulp fiction
     Critique of user: Another Tarantino fanboy? How original.
     
-    Favorite film: Pokemon: The First Movie (1998)
+    Favorite film: Pokemon: The First Movie 
     Critique of user: Sorry, I didn't realize I was assisting a 7-year-old.
     
     Favorite film: the mummy
     Critique of user: Wow, a film that accurately reflects your taste in ancient history - outdated and corny.
     
+    Favorite film: the matrix
+    Critique of user: Are you one of those people who think they're living in a simulation? Because if so, you might want to take a break from sci-fi films and step outside for a bit.
+    
+    
+    
+    
     Favorite film: {film}
     Critique of user:
     """
     return prompt
+

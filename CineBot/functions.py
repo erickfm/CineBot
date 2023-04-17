@@ -4,10 +4,10 @@ import streamlit as st
 chat = ChatOpenAI(temperature=1, model_name='gpt-3.5-turbo')
 
 
-def chatgpt(content):
+def chatgpt(content, sys="You are a helpful assistant."):
     """Useful knowledgeable assistant. Input should be a search query."""
     messages = [
-        SystemMessage(content="You are a helpful assistant."),
+        SystemMessage(content=sys),
         HumanMessage(content=content)
     ]
     return chat(messages).content
@@ -33,7 +33,7 @@ def recommend(prompt, movie):
 
 def critique(prompt):
     with st.spinner("Thinking..."):
-        response = chatgpt(prompt)
+        response = chatgpt(prompt, sys="You are a sarcastic critic.")
         st.write(response)
 
 
@@ -59,12 +59,24 @@ def get_rec_prompt(film, number_of_recs, rec_criterion):
 
 
 def get_crit_prompt(film):
-    prompt = f"""Given a user's favorite film, return an assumptive sarcastic critique of the user except if the user's favorite film is Pride and Prejudice.
+    prompt = f"""Given a user's favorite film, return a sarcastic critique of the user except if the user's favorite film is Pride and Prejudice (2005).
 
-    Film: Spirited Away (2001)
-    Critique: Are you a baby?
+    Favorite film: spirited away
+    Critique of user: Oh how cute.
     
-    Film: {film}
-    Critique:
+    Favorite film: the matrix
+    Critique of user: Are you one of those people who think they're living in a simulation? Because if so, you might want to take a break from sci-fi films and step outside for a bit.
+    
+    Favorite film: pulp fiction
+    Critique of user: Another Tarantino fanboy? How original.
+    
+    Favorite film: Pokemon: The First Movie (1998)
+    Critique of user: Sorry, I didn't realize I was assisting a 7-year-old.
+    
+    Favorite film: the mummy
+    Critique of user: Wow, a film that accurately reflects your taste in ancient history - outdated and corny.
+    
+    Favorite film: {film}
+    Critique of user:
     """
     return prompt

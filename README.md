@@ -2,7 +2,7 @@
 ![image](https://raw.githubusercontent.com/erickfm/CineBot/main/images/cinebot1_small.png)
 # CineBot
 
-Your AI Film Recommender
+Your AI Film Recommender - https://cinebot.streamlit.app/
 
 ---
 

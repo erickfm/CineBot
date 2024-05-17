@@ -38,7 +38,7 @@ def critique(prompt):
 
 
 def get_rec_prompt(film, number_of_recs, rec_criterion):
-    prompt = f"""Given a film, a number of recommendations desired, and an optional recommendation criterion, return a specified number of movie recommendations that a fan of the given film will likely enjoy, with an optional criterion. Do not recommend TV shows.
+    prompt = f"""Given a film, a number of recommendations desired, and an optional recommendation criterion, return a list of movie recommendations. Do not recommend TV shows.
     
     Film: Inception (2010)
     Number of Recommendations: 1

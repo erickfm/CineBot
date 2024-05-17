@@ -53,13 +53,7 @@ else:
         rec_criterion = form.text_input('Recommendation Criterion (optional)')
         if form.form_submit_button('Submit'):
             prompt = get_rec_prompt(film, number_of_recs, rec_criterion)
-            try:
-                recommend(prompt, movie)
-            except Exception as e:
-                try:
-                    recommend(prompt, movie)
-                except Exception as e:
-                    st.error(error_response)
+            recommend(prompt, movie)
 if about_page:
     st.markdown('# About \n')
     st.write('Built by [Erick Martinez](https://github.com/erickfm) using OpenAI, LangChain, TMDB, and Streamlit. CineBot icons by [Megan Cerminaro](https://www.megancerminaro.com/)'

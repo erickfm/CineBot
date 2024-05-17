@@ -16,7 +16,9 @@ def chatgpt(content, sys="You are a helpful assistant."):
 def recommend(prompt, movie):
     with st.spinner("Thinking..."):
         response = chatgpt(prompt)
+        st.write(response)
         films = {i.split(' (')[0]: {"release year": i.split(' (')[1].split(')')[0]} for i in response.split(' || ')}
+        st.write(films)
     with st.spinner("Fetching results..."):
         for film in films:
             search_results = movie.search(film)
@@ -24,11 +26,16 @@ def recommend(prompt, movie):
             result = search_results[n]
             while result.release_date.split('-')[0] != films[film]["release year"]:
                 n += 1
-                result = search_results[n]
-            col1, col2 = st.columns([1, 1])
-            col1.image("https://image.tmdb.org/t/p/w500/" + result.poster_path)
-            col2.write(f"### [{result.title}](https://www.themoviedb.org/movie/{result.id}) ({result.release_date.split('-')[0]})")
-            col2.write(result.overview)
+                try:
+                    result = search_results[n]
+                except IndexError:
+                    n = -1
+                    break
+            if n >= 0:
+                col1, col2 = st.columns([1, 1])
+                col1.image("https://image.tmdb.org/t/p/w500/" + result.poster_path)
+                col2.write(f"### [{result.title}](https://www.themoviedb.org/movie/{result.id}) ({result.release_date.split('-')[0]})")
+                col2.write(result.overview)
 
 
 def critique(prompt):

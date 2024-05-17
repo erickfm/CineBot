@@ -16,9 +16,7 @@ def chatgpt(content, sys="You are a helpful assistant."):
 def recommend(prompt, movie):
     with st.spinner("Thinking..."):
         response = chatgpt(prompt)
-        st.write(response)
         films = {i.split(' (')[0]: {"release year": i.split(' (')[1].split(')')[0]} for i in response.split(' || ')}
-        st.write(films)
     with st.spinner("Fetching results..."):
         for film in films:
             search_results = movie.search(film)

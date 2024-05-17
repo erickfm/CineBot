@@ -40,7 +40,7 @@ def critique(prompt):
 def get_rec_prompt(film, number_of_recs, rec_criterion):
     prompt = f"""Given a film, a number of recommendations desired, and an optional recommendation criterion, return a list of movie recommendations. Do not recommend TV shows.
     
-    Film: Princess Mononoke ()
+    Film: Princess Mononoke (1997)
     Number of Recommendations: 5
     Recommendation Criterion: Horror, Rated R
     Recommendations: Audition (1999) || Suspiria (1977)

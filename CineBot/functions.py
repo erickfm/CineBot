@@ -1,7 +1,7 @@
 from langchain.schema import HumanMessage, SystemMessage
 from langchain.chat_models import ChatOpenAI
 import streamlit as st
-chat = ChatOpenAI(temperature=1, model_name='gpt-3.5-turbo')
+chat = ChatOpenAI(temperature=1, model_name='gpt-4')
 
 
 def chatgpt(content, sys="You are a helpful assistant."):
@@ -38,12 +38,12 @@ def critique(prompt):
 
 
 def get_rec_prompt(film, number_of_recs, rec_criterion):
-    prompt = f"""Given a film, a number of recommendations desired, and an optional recommendation criterion, return a list of movie recommendations. Do not recommend TV shows like The Walking Dead or Breaking Bad.
+    prompt = f"""Given a film, a number of recommendations desired, and an optional recommendation criterion, return a specified number of movie recommendations that a fan of the given film will likely enjoy, with an optional criterion. Do not recommend TV shows.
     
-    Film: Spirited Away (2001)
-    Number of Recommendations: 3
-    Recommendation Criterion: same/similar director
-    Recommendations: My Neighbor Totoro (1988) || Porco Rosso (1992) || Lupin III: The Castle of Cagliostro (1979)
+    Film: Inception (2010)
+    Number of Recommendations: 1
+    Recommendation Criterion: animated
+    Recommendations: Paprika (2006)
 
     Film: pride and prejudice
     Number of Recommendations: 5

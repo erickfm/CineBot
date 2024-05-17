@@ -5,9 +5,9 @@ from CineBot.constants import default_link, alt_link, cinebot_image_path, github
 from tmdbv3api import Movie
 
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-os.environ["SERPAPI_API_KEY"] = st.secrets["SERPAPI_API_KEY"]
-os.environ["GOOGLE_CSE_ID"] = st.secrets["GOOGLE_CSE_ID"]
-os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+# os.environ["SERPAPI_API_KEY"] = st.secrets["SERPAPI_API_KEY"]
+# os.environ["GOOGLE_CSE_ID"] = st.secrets["GOOGLE_CSE_ID"]
+# os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 os.environ["TMDB_API_KEY"] = st.secrets["TMDB_API_KEY"]
 movie = Movie()
 
